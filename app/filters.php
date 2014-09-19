@@ -33,6 +33,16 @@ App::after(function($request, $response)
 |
 */
 
+Route::filter('only-admin', function()
+{
+    if ( Auth::guest() ) // If the user is not logged in
+    {
+        return Redirect::guest('user/login');
+    }
+    return Redirect::to('admin');
+});
+
+
 Route::filter('auth', function()
 {
 	if ( Auth::guest() ) // If the user is not logged in
@@ -72,13 +82,13 @@ Route::filter('guest', function()
 */
 
 // Check for role on all admin routes
-Entrust::routeNeedsRole( 'admin*', array('admin'), Redirect::to('/') );
+/*Entrust::routeNeedsRole( 'admin*', array('admin'), Redirect::to('/') );
 
 // Check for permissions on admin actions
 Entrust::routeNeedsPermission( 'admin/blogs*', 'manage_blogs', Redirect::to('/admin') );
 Entrust::routeNeedsPermission( 'admin/comments*', 'manage_comments', Redirect::to('/admin') );
 Entrust::routeNeedsPermission( 'admin/users*', 'manage_users', Redirect::to('/admin') );
-Entrust::routeNeedsPermission( 'admin/roles*', 'manage_roles', Redirect::to('/admin') );
+Entrust::routeNeedsPermission( 'admin/roles*', 'manage_roles', Redirect::to('/admin') );*/
 
 /*
 |--------------------------------------------------------------------------

@@ -5,7 +5,8 @@
  * @package  Laravel
  * @author   Taylor Otwell <taylorotwell@gmail.com>
  */
-
+error_reporting(E_ALL);
+set_time_limit(0);
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader

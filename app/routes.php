@@ -78,7 +78,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
  *  ------------------------------------------
  */
 
-// User reset routes
+/*// User reset routes
 Route::get('user/reset/{token}', 'UserController@getReset');
 // User password reset
 Route::post('user/reset/{token}', 'UserController@postReset');
@@ -88,8 +88,7 @@ Route::post('user/{user}/edit', 'UserController@postEdit');
 //:: User Account Routes ::
 Route::post('user/login', 'UserController@postLogin');
 
-# User RESTful Routes (Login, Logout, Register, etc)
-Route::controller('user', 'UserController');
+
 
 //:: Application Routes ::
 
@@ -105,7 +104,12 @@ Route::get('contact-us', function()
 
 # Posts - Second to last set, match slug
 Route::get('{postSlug}', 'BlogController@getView');
-Route::post('{postSlug}', 'BlogController@postView');
+Route::post('{postSlug}', 'BlogController@postView');*/
+
+# User RESTful Routes (Login, Logout, Register, etc)
+//Route::controller('user', 'UserController');
 
 # Index Page - Last route, no matches
-Route::get('/', array('before' => 'detectLang','uses' => 'BlogController@getIndex'));
+
+Route::controller('user', 'UserController');
+Route::get('/', array('before' => 'only-admin','uses' => 'AdminDashboardController'));
