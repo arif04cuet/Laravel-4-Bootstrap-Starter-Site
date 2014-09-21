@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://173.254.77.70/~aflccom/public/index.php',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => 'Wu0xLwnXMTV0nBPSSW4vfi8bJhp20COS',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,	
 

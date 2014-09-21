@@ -16,7 +16,7 @@
     <fieldset>
         <div class="form-group">
             <label class="col-md-2 control-label" for="email">{{ Lang::get('confide::confide.username_e_mail') }}</label>
-            <div class="col-md-10">
+            <div class="col-md-4">
                 <input class="form-control" tabindex="1" placeholder="{{ Lang::get('confide::confide.username_e_mail') }}" type="text" name="email" id="email" value="{{ Input::old('email') }}">
             </div>
         </div>
@@ -24,7 +24,7 @@
             <label class="col-md-2 control-label" for="password">
                 {{ Lang::get('confide::confide.password') }}
             </label>
-            <div class="col-md-10">
+            <div class="col-md-4">
                 <input class="form-control" tabindex="2" placeholder="{{ Lang::get('confide::confide.password') }}" type="password" name="password" id="password">
             </div>
         </div>

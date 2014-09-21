@@ -1,8 +1,10 @@
 @extends('admin.layouts.default')
+
+{{-- Content --}}
 @section('content')
 <div class="page-header">
     <h3>
-        Welcome to Aflac Dashboard
+        {{{ $title }}}
     </h3>
 </div>
 @stop

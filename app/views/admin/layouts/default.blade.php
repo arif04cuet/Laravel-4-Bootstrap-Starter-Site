@@ -83,9 +83,11 @@
     			<div class="collapse navbar-collapse navbar-ex1-collapse">
     				<ul class="nav navbar-nav">
     					<li{{ (Request::is('admin') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin') }}}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                        <li{{ (Request::is('admin/contact/index') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/contacts') }}}"><span class="glyphicon glyphicon-search"></span> Lookup</a></li>
+                        <li{{ (Request::is('admin/contacts/create') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/contacts/create') }}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
     					<!--<li{{ (Request::is('admin/blogs*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs') }}}"><span class="glyphicon glyphicon-list-alt"></span> Blog</a></li>
     					<li{{ (Request::is('admin/comments*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/comments') }}}"><span class="glyphicon glyphicon-bullhorn"></span> Comments</a></li>-->
-    					<li class="dropdown{{ (Request::is('admin/users*|admin/roles*') ? ' active' : '') }}">
+    					<!--<li class="dropdown{{ (Request::is('admin/users*|admin/roles*') ? ' active' : '') }}">
     						<a class="dropdown-toggle" data-toggle="dropdown" href="{{{ URL::to('admin/users') }}}">
     							<span class="glyphicon glyphicon-user"></span> Users <span class="caret"></span>
     						</a>
@@ -93,7 +95,7 @@
     							<li{{ (Request::is('admin/users*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/users') }}}"><span class="glyphicon glyphicon-user"></span> Users</a></li>
     							<li{{ (Request::is('admin/roles*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/roles') }}}"><span class="glyphicon glyphicon-user"></span> Roles</a></li>
     						</ul>
-    					</li>
+    					</li>-->
     				</ul>
     				<ul class="nav navbar-nav pull-right">
     					<!--<li><a href="{{{ URL::to('/') }}}">View Homepage</a></li>-->

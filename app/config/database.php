@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'aflac',
-			'username'  => 'root',
-			'password'  => '',
+			'database'  => 'aflccom_aflccom',
+			'username'  => 'aflccom_aflccom',
+			'password'  => '!a123456s@',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

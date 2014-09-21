@@ -16,6 +16,7 @@
  *  ------------------------------------------
  */
 Route::model('user', 'User');
+Route::model('contact', 'Contact');
 Route::model('comment', 'Comment');
 Route::model('post', 'Post');
 Route::model('role', 'Role');
@@ -27,6 +28,7 @@ Route::model('role', 'Role');
 Route::pattern('comment', '[0-9]+');
 Route::pattern('post', '[0-9]+');
 Route::pattern('user', '[0-9]+');
+Route::pattern('contact', '[0-9]+');
 Route::pattern('role', '[0-9]+');
 Route::pattern('token', '[0-9a-z]+');
 
@@ -38,11 +40,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
 
     # Comment Management
-    Route::get('comments/{comment}/edit', 'AdminCommentsController@getEdit');
+    /*Route::get('comments/{comment}/edit', 'AdminCommentsController@getEdit');
     Route::post('comments/{comment}/edit', 'AdminCommentsController@postEdit');
     Route::get('comments/{comment}/delete', 'AdminCommentsController@getDelete');
-    Route::post('comments/{comment}/delete', 'AdminCommentsController@postDelete');
-    Route::controller('comments', 'AdminCommentsController');
+    Route::post('comments/{comment}/delete', 'AdminCommentsController@postDelete');*/
+    Route::controller('contacts', 'AdminContactController');
 
     # Blog Management
     Route::get('blogs/{post}/show', 'AdminBlogsController@getShow');

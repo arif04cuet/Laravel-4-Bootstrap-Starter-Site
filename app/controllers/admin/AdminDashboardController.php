@@ -1,14 +1,16 @@
 <?php
 
-class AdminDashboardController extends AdminController {
+class AdminDashboardController extends AdminController
+{
 
-	/**
-	 * Admin dashboard
-	 *
-	 */
-	public function getIndex()
-	{
-        return View::make('admin/dashboard');
-	}
+    /**
+     * Admin dashboard
+     *
+     */
+    public function getIndex()
+    {
+        $title = 'Welcome to Aflac Dashboard';
+        return View::make('admin/dashboard', compact('title'));
+    }
 
 }
