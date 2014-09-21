@@ -4,8 +4,9 @@ class Contact extends \Eloquent
 {
     protected $table = 'contact';
     protected $primaryKey = 'id_contact';
-    public $timestamps = false;
-    protected $fillable = [];
+    protected $fillable = array('company', 'type', 'contact_first', 'contact_last', 'city', 'zip_code', 'county', 'email', 'voip_username', 'website', 'title', 'department', 'toll_free_phone', 'mobile_phone', 'fax', 'phone', 'state');
+    protected $guarded = array();
+
 
     public function getTypes($index = null)
     {
@@ -24,4 +25,5 @@ class Contact extends \Eloquent
         }
         return $types;
     }
+
 }

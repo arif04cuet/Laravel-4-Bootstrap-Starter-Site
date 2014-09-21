@@ -21,7 +21,7 @@ class AdminContactController extends \AdminController
 
         $title = 'Lookup';
         // Grab all the contacts
-        $users = $this->contact;
+
         $states = DB::table('contact')->groupBy('state')->lists('state', 'state');
         $states[""] = "Select One";
 
@@ -37,8 +37,14 @@ class AdminContactController extends \AdminController
      */
     public function getCreate()
     {
-        $title = "Create User - Coming soon!!";
-        return View::make('admin/contact/create', compact('title'));
+        $title = "Create Contact";
+        $states = DB::table('contact')->groupBy('state')->lists('state', 'state');
+        $states[""] = "Select One";
+        $day = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31);
+        $month = array("Select", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+        $years = array_combine(range(date("Y"), 1910), range(date("Y"), 1910));
+        $contact = $this->contact;
+        return View::make('admin/contact/create', compact('title', 'states', 'day', 'month', 'years','contact'));
     }
 
     /**
@@ -49,7 +55,32 @@ class AdminContactController extends \AdminController
      */
     public function postStore()
     {
-        //
+        $rules = array(
+            'company' => 'required',
+            'contact_first' => 'required',
+            'contact_last' => 'required',
+            'title' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'email' => 'required|email',
+
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('admin/contacts/create')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+        } else {
+
+            //save contact
+            $contact = Contact::create(Input::except('_token'));
+            // redirect
+            Session::flash('message', 'Successfully created Contact!');
+            return Redirect::to('admin/contacts');
+        }
+
     }
 
     /**
@@ -130,8 +161,7 @@ class AdminContactController extends \AdminController
                 $contact->where($key, 'LIKE', '%' . $val . '%');
             }
         }
-        /*if (Input::get('type'))
-            $contact->where('type', '=', Input::get('type'));*/
+        $contact->orderBy('id_contact', 'desc');
 
         return Datatables::of($contact)
             //->set_index_column('id_contact')

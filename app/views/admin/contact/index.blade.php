@@ -298,7 +298,7 @@
                 { "sWidth": "5%"},
                 { "sWidth": "10%"},
                 { "sWidth": "10%"},
-                { "sWidth": "10%"}
+                { "sWidth": "9%"}
             ],
             "oLanguage": {
                 "sLengthMenu": "_MENU_ records per page"
