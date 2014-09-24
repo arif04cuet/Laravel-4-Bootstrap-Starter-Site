@@ -253,7 +253,7 @@
 </div>
 <hr/>
 <div class="table-responsive">
-    <table id="contacts" class="table table-striped table-hover table-condensed">
+    <table id="contacts" class="table table-bordered table-striped table-hover table-condensed">
         <thead>
         <tr>
             <th class="col-md-2">Company</th>
@@ -292,8 +292,8 @@
             aoColumns: [
                 { "sWidth": "17%"},
                 { "sWidth": "12%"},
-                { "sWidth": "7%"},
-                { "sWidth": "20%"},
+                { "sWidth": "8%"},
+                { "sWidth": "18%"},
                 { "sWidth": "10%"},
                 { "sWidth": "5%"},
                 { "sWidth": "10%"},

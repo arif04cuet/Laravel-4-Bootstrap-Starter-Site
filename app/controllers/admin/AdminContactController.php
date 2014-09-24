@@ -44,7 +44,7 @@ class AdminContactController extends \AdminController
         $month = array("Select", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
         $years = array_combine(range(date("Y"), 1910), range(date("Y"), 1910));
         $contact = $this->contact;
-        return View::make('admin/contact/create', compact('title', 'states', 'day', 'month', 'years','contact'));
+        return View::make('admin/contact/create', compact('title', 'states', 'day', 'month', 'years', 'contact'));
     }
 
     /**
@@ -95,6 +95,12 @@ class AdminContactController extends \AdminController
         //
     }
 
+    public function getNote($id)
+    {
+        $title = "Show Contact Notes";
+        return View::make('admin/contact/note', compact('title'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      * GET /admin\admincontact/{id}/edit
@@ -126,9 +132,12 @@ class AdminContactController extends \AdminController
      * @param  int $id
      * @return Response
      */
-    public function getDestroy($id)
+    public function getDelete($id)
     {
-        //
+        $delete = Contact::destroy($id);
+        Session::flash('message', 'Contact has been deleted Successfully');
+        return Redirect::to('admin/contacts');
+
     }
 
     /**

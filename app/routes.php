@@ -36,14 +36,11 @@ Route::pattern('token', '[0-9a-z]+');
  *  Admin Routes
  *  ------------------------------------------
  */
-Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
-{
+Route::group(array('prefix' => 'admin', 'before' => 'auth'), function () {
 
-    # Comment Management
-    /*Route::get('comments/{comment}/edit', 'AdminCommentsController@getEdit');
-    Route::post('comments/{comment}/edit', 'AdminCommentsController@postEdit');
-    Route::get('comments/{comment}/delete', 'AdminCommentsController@getDelete');
-    Route::post('comments/{comment}/delete', 'AdminCommentsController@postDelete');*/
+    # Contact Management
+    Route::get('contacts/{id}/delete', 'AdminContactController@getDelete');
+    Route::get('contacts/{id}/note', 'AdminContactController@getNote');
     Route::controller('contacts', 'AdminContactController');
 
     # Blog Management
@@ -71,7 +68,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::controller('roles', 'AdminRolesController');
 
     # Admin Dashboard
-    Route::controller('/', 'AdminDashboardController');
+    //Route::controller('/', 'AdminDashboardController');
+    Route::controller('/', 'AdminContactController');
 });
 
 
@@ -114,4 +112,4 @@ Route::post('{postSlug}', 'BlogController@postView');*/
 # Index Page - Last route, no matches
 
 Route::controller('user', 'UserController');
-Route::get('/', array('before' => 'only-admin','uses' => 'AdminDashboardController'));
+Route::get('/', array('before' => 'only-admin', 'uses' => 'AdminDashboardController'));
